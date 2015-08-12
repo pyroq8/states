@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>City list</title>
+
+</head>
+
+	<body>
+
+		{% for state, cities in state_city.items %}
+	
+			<h3>{{ state }}</h3>
+
+			{% for city in cities %}
+
+				{{city.name}}</br>
+
+			{% endfor %}
+
+		{% endfor %}
+
+	</body>
+
+</html>

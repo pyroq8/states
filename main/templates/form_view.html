@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block body %}
+		
+	<form action='/form_view/' method='POST'>
+	{% csrf_token %}
+	City:
+	</br>
+	<input type="text" name="city" >
+
+	</br>
+	<input type="submit" value="Submit" >
+
+	</form>
+
+	</br>
+	</br>
+
+	Method: {{ method }}
+	</br>
+	Get: {{ get }}
+	</br>
+	Post: {{ post }}
+
+	</br>
+	</br>
+	{% for city in cities %}
+		{{ city.name }} </br>
+	{% endfor %}
+{% endblock %}

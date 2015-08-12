@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block body %}
+		
+	<form action='/form_view2/' method='POST'>
+	{% csrf_token %}
+	City:
+	</br>
+	{{ form.as_p }}
+	<input type="submit" value="Submit" >
+
+	</form>
+
+
+	</br>
+	Valid: {{ valid }}
+
+	</br>
+	</br>
+
+	Method: {{ method }}
+	</br>
+	Get: {{ get }}
+	</br>
+	Post: {{ post }}
+
+	</br>
+	</br>
+	{% for city in cities %}
+		<b>City Name:</b> {{ city.name }} </br>
+		<b>State:</b> {{ city.state }} </br>
+		<b>County:</b> {{ city.county }} </br>
+		<b>Zip code:</b> {{ city.zip_code }} </br>
+		<b>latitude:</b> {{ city.latitude }} </br>
+		<b>longitude:</b> {{ city.longitude }} </br>
+		--------------------------------</br>
+	{% endfor %}
+{% endblock %}

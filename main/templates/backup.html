@@ -1,0 +1,46 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>City list</title>
+	<script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+
+</head>
+
+	<body>
+		<div class="container">
+
+			<div class="row">
+			{% for state in states %}
+				<div class="col-xs-6 col-sm-6 col-md-12">
+					<h2 class="state">{{ state }}</h2>
+
+					{% for city in state.city_set.all %}
+						<a href="/city_detail/{{ city.pk }}/">{{ city.name }}</a></br>
+					{% endfor %}
+				</div>
+			{% endfor %}
+			</div>
+
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function()  {
+
+			$('body').css('background-color', 'lightblue').css('color', 'blue');
+
+				$('.city').on('mouseover', function() {
+					$('.city').css('color', '#CCC');
+				});
+				$('.city').on('mouseout', function() {
+					$('.city').css('color', 'blue');
+				});
+
+			});	
+	</script>
+
+</html>

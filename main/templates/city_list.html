@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block body %}
+		<div class="container">
+
+			<div class="row">
+			{% for state in states %}
+				<div class="col-xs-6 col-sm-6 col-md-12">
+					<h2 class="state">{{ state }}</h2>
+
+					{% for city in state.city_set.all %}
+						<a href="/city_detail/{{ city.pk }}/">{{ city.name }}</a></br>
+					{% endfor %}
+				</div>
+			{% endfor %}
+			</div>
+
+		</div>
+{% endblock %}
